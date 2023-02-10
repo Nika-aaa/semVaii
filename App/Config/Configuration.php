@@ -12,7 +12,7 @@ use App\Auth\LoginAuthenticator;
  */
 class Configuration
 {
-    public const APP_NAME = 'Vaííčko MVC FW';
+    public const APP_NAME = 'Translatoria';
     public const FW_VERSION = '2.0';
 
     public const DB_HOST = 'localhost';  // change to db, if docker you use docker

@@ -1,9 +1,11 @@
 <?php
-/** @var string $contentHTML */
-/** @var \App\Core\IAuthenticator $auth */
+use App\Core\IAuthenticator;
+
 ?>
-<!DOCTYPE html>
-<html lang="sk">
+
+<!doctype html>
+<html lang="en">
+
 <head>
     <title><?= \App\Config\Configuration::APP_NAME ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -14,41 +16,59 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
             crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="public/css/styl.css">
     <script src="public/js/script.js"></script>
 </head>
+
 <body>
-<nav class="navbar navbar-expand-sm bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="?c=posts">
-            <img src="public/images/vaiicko_logo.png" title="<?= \App\Config\Configuration::APP_NAME ?>"
-                 title="<?= \App\Config\Configuration::APP_NAME ?>">
-        </a>
-        <ul class="navbar-nav me-auto">
+<nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark p-1 fixed-top">
+
+    <a href="?c=homepage" class="navbar-brand padding_left disappear">TRANSLATORIA</a>
+
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navLinks">
+        <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-                <a class="nav-link" href="?c=home&a=contact">Kontakt</a>
+                <a href="?c=homepage" class="nav-link padding_left">US</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link padding_left">WHAT WE DO</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link padding_left">WHAT WE DID</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link padding_left">TESTIMONIALS</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link padding_left">FIND A TRANSLATOR</a>
+            </li>
+            <li class="nav-item">
+                <a href="?c=auth" class="nav-link padding_left">LOGIN</a>
             </li>
         </ul>
-        <?php if ($auth->isLogged()) { ?>
-            <span class="navbar-text">Prihlásený používateľ: <b><?= $auth->getLoggedUserName() ?></b></span>
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="?c=auth&a=logout">Odhlásenie</a>
-                </li>
-            </ul>
-        <?php } else { ?>
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= \App\Config\Configuration::LOGIN_URL ?>">Prihlásenie</a>
-                </li>
-            </ul>
-        <?php } ?>
     </div>
 </nav>
-<div class="container-fluid mt-3">
+
+
     <div class="web-content">
         <?= $contentHTML ?>
     </div>
-</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

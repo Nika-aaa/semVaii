@@ -21,6 +21,7 @@
     <script src="public/js/script.js"></script>
 </head>
 <body>
+
 <div class="container-fluid mt-3">
     <div class="web-content">
         <?= $contentHTML ?>

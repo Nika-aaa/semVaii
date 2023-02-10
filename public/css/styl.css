@@ -1,11 +1,45 @@
-.navbar {
-    border-bottom: 1px solid grey;
+#mainNavbar {
+    background-color: deepskyblue;
+    color: white;
+    font-weight: 500;
 }
 
-.navbar-brand img {
-    width: 50px;
+#mainNavbar .nav-link:hover {
+    color: #d8315b;
+    font-weight: 800;
+    transition: color 500ms;
+    transition: font-weight 500ms;
 }
 
-#\#herrow {
-    color: blue;
+#mainNavbar .navbar-brand {
+    color: #d8315b;
+    font-size: 2rem;
+    font-weight: 750;
 }
+
+body {
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+    color: #1e1b18;
+    padding-top: 90px;
+}
+
+.padding_left {
+    padding-left: 10px;
+}
+
+.nav-item {
+    border-left: 1px solid #d96f85;
+}
+
+.nav-item:first-child {
+    border-left: none;
+}
+
+@media (max-width: 1240px) {
+    .disappear {
+        display: none !important;
+    }
+}
+
+
