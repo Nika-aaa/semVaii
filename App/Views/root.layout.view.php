@@ -1,6 +1,9 @@
 <?php
 use App\Core\IAuthenticator;
 
+
+/** @var string $contentHTML */
+/** @var \App\Core\IAuthenticator $auth */
 ?>
 
 <!doctype html>
@@ -22,7 +25,6 @@ use App\Core\IAuthenticator;
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="public/css/styl.css">
-    <script src="public/js/script.js"></script>
 </head>
 
 <body>
@@ -51,11 +53,25 @@ use App\Core\IAuthenticator;
             <li class="nav-item">
                 <a href="" class="nav-link padding_left">FIND A TRANSLATOR</a>
             </li>
-            <li class="nav-item">
-                <a href="?c=auth" class="nav-link padding_left">LOGIN</a>
-            </li>
+
+            <?php if (!$auth->isLogged()) { ?>
+                <li class="nav-item">
+                    <a href="?c=auth" class="nav-link padding_left">LOGIN</a>
+                </li>
+
+
+            <?php } else { ?>
+                <li class="nav-item">
+                    <a href="?c=auth&a=logout" class="nav-link padding_left">LOGOUT</a>
+                </li>
+
+                <li>
+                    <b id="loginDisplay"><?= $auth->getLoggedUserName() ?></b>
+                </li>
+            <?php } ?>
         </ul>
     </div>
+
 </nav>
 
 
@@ -69,6 +85,8 @@ use App\Core\IAuthenticator;
         crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+<script src="public/js/script.js"></script>
+
 </body>
 
 </html>

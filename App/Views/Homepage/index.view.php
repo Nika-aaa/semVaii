@@ -1,70 +1,120 @@
-<div>
+<section>
+
     <section class="container-fluid px-0">
+
         <div class="row align-items-center content">
-            <div class="col-md-6 order-2 order-md-1">
-                <img src="" alt="" class="img-fluid">
+            <div class="col-lg-6 text-center order-1 order-lg-2">
+                <img src="/public/images/10.jpg" alt="img1" class="d-lg-inline">
             </div>
-            <div class="col-md-6 text-center order-1 order-md-2">
+            <div class="col-lg-6 text-center order-2 order-lg-1">
                 <div class="row justify-content-center">
-                    <div class="col-10 col-lg-8 blurb mb-5 mb-md-0">
-                        <h2>MUSEUM OF CANDY</h2>
-                        <img src="imgs/lolli_icon.png" alt="" class="d-none d-lg-inline">
-                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, iste molestiae
-                            beatae, maiores deserunt
-                            in voluptatibus
-                            aspernatur architecto excepturi delectus soluta? Ipsa, deleniti dolorem hic consequatur
-                            repellat eveniet quidem
-                            voluptate necessitatibus dolorum delectus minus vitae, ut, veritatis sint ipsum magnam
-                            autem nam ex deserunt debitis
-                            eaque ratione! Nobis, quidem assumenda.</p>
+                    <div class="col-10 col-lg-8 mb-5 mb-md-0">
+                        <h2>Connecting the World Through Language</h2>
+                        <p class="lead">Translatoria is a platform revolutionizing
+                            the way people connect with professional translators.
+                            With a user-friendly interface and a directory of talented
+                            translators from all over the world, Translatoria is
+                            making it easier than ever to find the right language
+                            professional for your needs. Whether you're a multinational
+                            corporation seeking to communicate with international
+                            clients, or an individual looking to translate a personal
+                            document, Translatoria has got you covered. Join us today
+                            and experience the difference of a connected world</p>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="row align-items-center content">
-            <div class="col-md-6 text-center">
+            <div class="col-lg-6 text-center order-2 order-md-2">
+                <img src="/public/images/1.jpg" alt="img1" class="d-lg-inline">
+            </div>
+            <div class="col-lg-6 text-center order-2 order-md-2">
                 <div class="row justify-content-center">
-                    <div class="col-10 col-lg-8 blurb mb-5 mb-md-0">
-                        <h2>MUSEUM OF CANDY</h2>
-                        <img src="imgs/lolli_icon.png" alt="" class="d-none d-lg-inline">
-                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, iste molestiae
-                            beatae, maiores deserunt
-                            in voluptatibus
-                            aspernatur architecto excepturi delectus soluta? Ipsa, deleniti dolorem hic consequatur
-                            repellat eveniet quidem
-                            voluptate necessitatibus dolorum delectus minus vitae, ut, veritatis sint ipsum magnam
-                            autem nam ex deserunt debitis
-                            eaque ratione! Nobis, quidem assumenda.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <img src="imgs/gumball.png" alt="" class="img-fluid">
-            </div>
-        </div>
-        <div class="row align-items-center content">
-            <div class="col-md-6 order-2 order-md-1">
-                <img src="imgs/sprinkles.png" alt="" class="img-fluid">
-            </div>
-            <div class="col-md-6 text-center order-1 order-md-2">
-                <div class="row justify-content-center">
-                    <div class="col-10 col-lg-8 blurb mb-5 mb-md-0">
-                        <h2>MUSEUM OF CANDY</h2>
-                        <img src="imgs/lolli_icon.png" alt="" class="d-none d-lg-inline">
-                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, iste molestiae
-                            beatae, maiores
-                            deserunt
-                            in voluptatibus
-                            aspernatur architecto excepturi delectus soluta? Ipsa, deleniti dolorem hic consequatur
-                            repellat eveniet
-                            quidem
-                            voluptate necessitatibus dolorum delectus minus vitae, ut, veritatis sint ipsum magnam
-                            autem nam ex deserunt
-                            debitis
-                            eaque ratione! Nobis, quidem assumenda.</p>
+                    <div class="col-10 col-lg-8 mb-5 mb-md-0">
+                        <h2>Breaking Down Language Barriers with Translatoria</h2>
+                        <p class="lead">Language barriers can often hinder communication
+                            and hinder growth. That's why Translatoria was created –
+                            to break down those barriers and make communication easier.
+                            Our platform features a directory of certified translators with
+                            a wide range of language pairs and specialties, making it easy
+                            to find the right professional for your needs. With secure and
+                            confidential tools for uploading and sharing documents,
+                            Translatoria provides a stress-free experience for both clients and translators.
+                            Say goodbye to language barriers and join the Translatoria community today.</p>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="row align-items-center content">
+            <div class="col-lg-6 text-center order-1 order-lg-2">
+                <img src="/public/images/2.jpg" alt="img1" class="d-lg-inline">
+            </div>
+            <div class="col-lg-6 text-center order-2 order-lg-1">
+                <div class="row justify-content-center ">
+                    <div class="col-10 col-lg-8 mb-5 mb-md-0">
+                        <h2>Join the Translatoria Community</h2>
+                        <p class="lead">Are you a language professional
+                            looking to expand your client base and showcase
+                            your skills? Then Translatoria is the platform
+                            for you. Our website provides you with a professional
+                            platform to advertise your services, reach new clients,
+                            and grow your business. Whether you're a freelance
+                            translator or part of a larger translation agency,
+                            Translatoria can help you reach new heights in your career.</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row align-items-center content">
+            <div class="col-lg-6 text-center order-2 order-md-2">
+                <img src="/public/images/3.jpg" alt="img1" class="d-lg-inline">
+            </div>
+            <div class="col-lg-6 text-center order-2 order-md-2">
+                <div class="row justify-content-center">
+                    <div class="col-10 col-lg-8 mb-5 mb-md-0">
+                        <h2>The Future of Translation Services: Translatoria</h2>
+                        <p class="lead">The world of translation services is evolving,
+                            and Translatoria is at the forefront of this change.
+                            Our platform offers a range of tools and features that
+                            make it easy to request quotes, communicate with translators,
+                            and track the progress of your project. Whether you're a
+                            seasoned professional or new to the world of translation
+                            services, Translatoria provides a seamless and stress-free
+                            experience. Join the future of translation services and sign
+                            up with Translatoria today.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row align-items-center content">
+            <div class="col-lg-6 text-center order-1 order-lg-2">
+                <img src="/public/images/5.jpg" alt="img1" class="d-lg-inline">
+            </div>
+            <div class="col-lg-6 text-center order-2 order-lg-1">
+                <div class="row justify-content-center ">
+                    <div class="col-10 col-lg-8 mb-5 mb-md-0">
+                        <div class="row">
+                            <h2>LANGUAGE TRIVIA</h2>
+                            <br>
+                        </div>
+                        <br>
+                            <div class="row">
+                                <p id="triviaQuestion"> Question</p>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <span id="triviaAnswer"> Reveal answer</span>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
-</div>
+</section>

@@ -7,127 +7,74 @@ use App\Core\Model;
 class User extends Model
 {
 
-    protected int $id;
-    protected string $nickname;
-    protected string $name;
-    protected string $surname;
-    protected int $club_id;
-    protected string $email;
-    protected string $password;
+    protected $id;
+    protected $nickname;
+    protected $password;
+    protected $translator_id_fk;
 
     /**
-     * @return int
+     * @return mixed
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
 
     /**
-     * @param int $id
+     * @param mixed $id
      */
-    public function setId(int $id): void
+    public function setId($id): void
     {
         $this->id = $id;
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getNickname(): string
+    public function getNickname()
     {
         return $this->nickname;
     }
 
     /**
-     * @param string $nickname
+     * @param mixed $nickname
      */
-    public function setNickname(string $nickname): void
+    public function setNickname($nickname): void
     {
         $this->nickname = $nickname;
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName(string $name): void
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSurname(): string
-    {
-        return $this->surname;
-    }
-
-    /**
-     * @param string $surname
-     */
-    public function setSurname(string $surname): void
-    {
-        $this->surname = $surname;
-    }
-
-    /**
-     * @return int
-     */
-    public function getClubId(): int
-    {
-        return $this->club_id;
-    }
-
-    /**
-     * @param int $club_id
-     */
-    public function setClubId(int $club_id): void
-    {
-        $this->club_id = $club_id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getEmail(): string
-    {
-        return $this->email;
-    }
-
-    /**
-     * @param string $email
-     */
-    public function setEmail(string $email): void
-    {
-        $this->email = $email;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPassword(): string
+    public function getPassword()
     {
         return $this->password;
     }
 
     /**
-     * @param string $password
+     * @param mixed $password
      */
-    public function setPassword(string $password): void
+    public function setPassword($password): void
     {
         $this->password = $password;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getTranslatorIdFk()
+    {
+        return $this->translator_id_fk;
+    }
 
+    /**
+     * @param mixed $translator_id_fk
+     */
+    public function setTranslatorIdFk($translator_id_fk): void
+    {
+        $this->translator_id_fk = $translator_id_fk;
+    }
 
 
 

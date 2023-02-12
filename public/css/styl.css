@@ -1,14 +1,14 @@
 #mainNavbar {
     background-color: deepskyblue;
     color: white;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 #mainNavbar .nav-link:hover {
     color: #d8315b;
     font-weight: 800;
-    transition: color 500ms;
-    transition: font-weight 500ms;
+    transition: all 500ms;
+
 }
 
 #mainNavbar .navbar-brand {
@@ -29,12 +29,31 @@ body {
 }
 
 .nav-item {
-    border-left: 1px solid #d96f85;
+    border-left: solid #9cd6e5;
+    border-width: thin;
+    /*border-left: 1px solid #d96f85;*/
 }
 
 .nav-item:first-child {
     border-left: none;
 }
+
+img {
+    position: relative;
+    object-fit: cover;
+    width: 100%;
+    height: 10%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+
+.content {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+
 
 @media (max-width: 1240px) {
     .disappear {

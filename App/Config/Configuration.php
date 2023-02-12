@@ -22,6 +22,7 @@ class Configuration
 
     //default url add
     public const LOGIN_URL = '?c=auth&a=login';
+//    public const REGISTRATION_URL = 'c=auth&a=registerUser';
 
     public const ROOT_LAYOUT = 'root';
 
