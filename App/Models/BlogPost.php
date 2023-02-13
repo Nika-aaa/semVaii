@@ -6,26 +6,27 @@ use App\Core\Model;
 
 class BlogPost extends Model
 {
-    protected $id_post;
+    protected $id;
     protected $title;
     protected $text;
-    protected $author_fk;
+//    protected $author_fk;
+    protected $photo;
     protected $date;
 
     /**
      * @return mixed
      */
-    public function getIdPost()
+    public function getId()
     {
-        return $this->id_post;
+        return $this->id;
     }
 
     /**
-     * @param mixed $id_post
+     * @param mixed $id
      */
-    public function setIdPost($id_post): void
+    public function setId($id): void
     {
-        $this->id_post = $id_post;
+        $this->id = $id;
     }
 
     /**
@@ -91,6 +92,23 @@ class BlogPost extends Model
     {
         $this->date = $date;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * @param mixed $photo
+     */
+    public function setPhoto($photo): void
+    {
+        $this->photo = $photo;
+    }
+
 
 
 

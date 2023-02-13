@@ -13,7 +13,7 @@ class LoginAuthenticator extends DummyAuthenticator
 
         if (count($user) == 1) {
             $user = $user[0];
-            if ($password == $user->getPassword()) {
+            if (password_verify($password, $user->getPassword())) {
                 $_SESSION['user'] = $user->getNickname();
                 return true;
             }

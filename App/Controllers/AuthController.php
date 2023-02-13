@@ -94,7 +94,8 @@ class AuthController extends AControllerBase
 
         $newUser = new User();
         $newUser->setNickname($nickname);
-        $newUser->setPassword($password);
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $newUser->setPassword($hashedPassword);
 
         $newUser->save();
 

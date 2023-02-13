@@ -9,6 +9,7 @@
 //     $('#changingSpan').html( words[ randomNumber ] );
 // }, 2000);
 
+
 let triviaQuestion = document.getElementById("triviaQuestion")
 let triviaAnswer = document.getElementById("triviaAnswer")
 let answer = "";
@@ -35,6 +36,22 @@ triviaAnswer.addEventListener("mouseover", function () {
     triviaAnswer.innerText = answer;
 })
 setInterval(getTrivia, 60000);
+
+
+
+$(document).ready(function () {
+    function load_data() {
+        $.ajax({
+            url: "",
+            method: "POST",
+            data: {page:page},
+            dataType:"JSON",
+            success:function (data){
+
+            }
+        })
+    }
+})
 
 
 

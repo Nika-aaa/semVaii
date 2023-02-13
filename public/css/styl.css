@@ -24,6 +24,8 @@ body {
     padding-top: 90px;
 }
 
+
+
 .padding_left {
     padding-left: 10px;
 }
@@ -48,9 +50,17 @@ img {
 }
 
 
+
 .content {
     margin-top: 100px;
     margin-bottom: 100px;
+}
+
+
+.container#containerBlog {
+    width: 75%;
+    display:flex;
+    justify-content: center;
 }
 
 
@@ -60,5 +70,20 @@ img {
         display: none !important;
     }
 }
+
+@media (max-width: 1240px) {
+    #loginDisplay {
+        display: none; !important;
+    }
+}
+
+@media (max-width: 630px) {
+    .disappear630 {
+        /*display: none; !important;*/
+    }
+}
+
+
+
 
 
