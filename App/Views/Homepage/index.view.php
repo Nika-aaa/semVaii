@@ -118,3 +118,5 @@
 
     </section>
 </section>
+
+<script src="public/js/homepage.js"></script>

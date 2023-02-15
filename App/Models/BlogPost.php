@@ -14,6 +14,22 @@ class BlogPost extends Model
     protected $date;
 
     /**
+     * @param $id
+     * @param $title
+     * @param $text
+     * @param $photo
+     * @param $date
+     */
+//    public function __construct($title, $text, $photo, $date)
+//    {
+//        $this->title = $title;
+//        $this->text = $text;
+//        $this->photo = $photo;
+//        $this->date = $date;
+//    }
+
+
+    /**
      * @return mixed
      */
     public function getId()

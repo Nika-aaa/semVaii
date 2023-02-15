@@ -17,6 +17,24 @@ class BlogController extends AControllerBase
 
     public function editBlogPost() : Response
     {
+//
+////        if ($this->request()->getMethod() === 'POST') {
+//            $title = $_POST['editBlogTitle'];
+//            $text = $_POST['editBlogText'];
+//            $id = $this->request()->getValue('id');
+//
+//            $postToBeEdited = BlogPost::getOne($id);
+//            $postToBeEdited->setTitle($title);
+//            $postToBeEdited->setText($text);
+//
+//            $postToBeEdited->save();
+//
+//
+//            return $this->json(['success' => true, 'title' => $postToBeEdited->getTitle(), 'text'=> $postToBeEdited->getText()]);
+////        }
+//
+//        return $this->redirect("?c=blog");
+
 
        $title = $_POST['editBlogTitle'];
        $text = $_POST['editBlogText'];
@@ -43,10 +61,26 @@ class BlogController extends AControllerBase
         return $this->redirect("?c=blog");
     }
 
-    public function createNewBlogpost() :Response
+    public function createBlogpost() :Response
     {
 
-        return $this->redirect("?c=blog");
+        return $this->html(new BlogPost(), viewName: 'create');
 
     }
+
+    public function store() :Response
+    {
+
+
+        $data = json_decode(file_get_contents('php://input'));
+        $blogpost = new BlogPost();
+        $blogpost->setText($data->text);
+        $blogpost->setTitle($data->title);
+        $blogpost->setDate(date('Y-m-d'));
+        $blogpost->save();
+
+        return $this->json(['success' => true]);
+    }
+
+
 }
