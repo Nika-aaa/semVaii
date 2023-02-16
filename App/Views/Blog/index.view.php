@@ -56,7 +56,35 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <a href="?c=blog&a=deleteBlogpost&id=<?php echo $post->getId() ?>" onclick="return confirm('Delete')" class="btn btn-secondary">Delete</a>
+                                    <a href="?c=blog&a=deleteBlogpost&id=<?php echo $post->getId() ?>" class="btn btn-secondary" data-toggle="modal" data-target="#deleteModal_<?php echo $post->getId() ?>">Delete</a>
+
+                                    <div class="modal fade" id="deleteModal_<?php echo $post->getId() ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="deleteModalLabel">Delete Post</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Are you sure you want to delete this post?</p>
+                                                    <form id="deleteForm_<?php echo $post->getId() ?>" method="post" action="?c=blog&a=deleteBlogpost&id=<?php echo $post->getId()?>">
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                    <button type="submit" class="btn btn-danger" form="deleteForm_<?php echo $post->getId() ?>">Delete</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
                                 </div>
                             <?php }  ?>
                         </div>
@@ -73,3 +101,5 @@
             </div>
         </div>
     </div>
+
+    <script src="public/js/blog.js"></script>
