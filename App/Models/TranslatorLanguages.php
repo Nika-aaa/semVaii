@@ -7,41 +7,41 @@ use App\Core\Model;
 class TranslatorLanguages extends Model
 {
 
-    protected $id_translator_service;
-    protected $transaltor_fk;
+    protected $id;
+    protected $translator_fk;
     protected $language_fk;
     protected $level_fk;
 
     /**
      * @return mixed
      */
-    public function getIdTranslatorService()
+    public function getId()
     {
-        return $this->id_translator_service;
+        return $this->id;
     }
 
     /**
-     * @param mixed $id_translator_service
+     * @param mixed $id
      */
-    public function setIdTranslatorService($id_translator_service): void
+    public function setId($id): void
     {
-        $this->id_translator_service = $id_translator_service;
+        $this->id = $id;
     }
 
     /**
      * @return mixed
      */
-    public function getTransaltorFk()
+    public function getTranslatorFk()
     {
-        return $this->transaltor_fk;
+        return $this->translator_fk;
     }
 
     /**
-     * @param mixed $transaltor_fk
+     * @param mixed $translator_fk
      */
-    public function setTransaltorFk($transaltor_fk): void
+    public function setTranslatorFk($translator_fk): void
     {
-        $this->transaltor_fk = $transaltor_fk;
+        $this->translator_fk = $translator_fk;
     }
 
     /**

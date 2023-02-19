@@ -6,23 +6,23 @@ use App\Core\Model;
 
 class Level extends Model
 {
-    protected $id_level;
+    protected $id;
     protected $level;
 
     /**
      * @return mixed
      */
-    public function getIdLevel()
+    public function getId()
     {
-        return $this->id_level;
+        return $this->id;
     }
 
     /**
-     * @param mixed $id_level
+     * @param mixed $id
      */
-    public function setIdLevel($id_level): void
+    public function setId($id): void
     {
-        $this->id_level = $id_level;
+        $this->id = $id;
     }
 
     /**

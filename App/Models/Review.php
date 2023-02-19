@@ -7,9 +7,10 @@ use App\Core\Model;
 class Review extends Model
 {
 
-    protected $id_review;
-    protected $user_fk;
+    protected $id;
+    protected $author;
     protected $title;
+    protected $text;
     protected $date;
     protected $percentage_satisfaction;
     protected $translator_id_fk;
@@ -17,33 +18,33 @@ class Review extends Model
     /**
      * @return mixed
      */
-    public function getIdReview()
+    public function getId()
     {
-        return $this->id_review;
+        return $this->id;
     }
 
     /**
-     * @param mixed $id_review
+     * @param mixed $id
      */
-    public function setIdReview($id_review): void
+    public function setId($id): void
     {
-        $this->id_review = $id_review;
+        $this->id = $id;
     }
 
     /**
      * @return mixed
      */
-    public function getUserFk()
+    public function getAuthor()
     {
-        return $this->user_fk;
+        return $this->author;
     }
 
     /**
-     * @param mixed $user_fk
+     * @param mixed $author
      */
-    public function setUserFk($user_fk): void
+    public function setAuthor($author): void
     {
-        $this->user_fk = $user_fk;
+        $this->author = $author;
     }
 
     /**
@@ -61,6 +62,24 @@ class Review extends Model
     {
         $this->title = $title;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * @param mixed $text
+     */
+    public function setText($text): void
+    {
+        $this->text = $text;
+    }
+
+
 
     /**
      * @return mixed

@@ -40,19 +40,19 @@ use App\Core\IAuthenticator;
     <div class="collapse navbar-collapse" id="navLinks">
         <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-                <a href="?c=homepage" class="nav-link padding_left">US</a>
+                <a href="?c=homepage" class="nav-link padding_left">HOME</a>
             </li>
             <li class="nav-item">
-                <a href="" class="nav-link padding_left">WHAT WE DO</a>
+                <a href="?c=whatwedo" class="nav-link padding_left">WHAT WE DO</a>
             </li>
             <li class="nav-item">
                 <a href="?c=blog" class="nav-link padding_left">BLOG</a>
             </li>
             <li class="nav-item">
-                <a href="" class="nav-link padding_left">TESTIMONIALS</a>
+                <a href="?c=reviews" class="nav-link padding_left">TESTIMONIALS</a>
             </li>
             <li class="nav-item">
-                <a href="" class="nav-link padding_left">FIND A TRANSLATOR</a>
+                <a href="?c=translators" class="nav-link padding_left">FIND A TRANSLATOR</a>
             </li>
 
             <?php if (!$auth->isLogged()) { ?>

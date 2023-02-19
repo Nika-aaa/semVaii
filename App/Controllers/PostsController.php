@@ -6,6 +6,7 @@ use App\Core\AControllerBase;
 use App\Core\Responses\Response;
 use App\Models\Like;
 use App\Models\Post;
+use App\Models\Review;
 
 class PostsController extends AControllerBase
 {
@@ -43,9 +44,9 @@ class PostsController extends AControllerBase
     public function store()
     {
         $id = $this->request()->getValue('id');
-        $post = ($id ? Post::getOne($id) : new Post());
-        $post->setText($this->request()->getValue('text'));
-        $post->save();
+        $review = ($id ? Review::getOne($id) : new Post());
+        $review->setText($this->request()->getValue('text'));
+        $review->save();
         return $this->redirect("?c=posts");
     }
 

@@ -7,56 +7,56 @@ use App\Core\Model;
 class TranslatorServices extends Model
 {
 
-    protected $id_translator_service;
-    protected $id_transaltor_fk;
-    protected $id_service_fk;
+    protected $id;
+    protected $id_tran_fk;
+    protected $id_serv_fk;
 
     /**
      * @return mixed
      */
-    public function getIdTranslatorService()
+    public function getId()
     {
-        return $this->id_translator_service;
+        return $this->id;
     }
 
     /**
-     * @param mixed $id_translator_service
+     * @param mixed $id
      */
-    public function setIdTranslatorService($id_translator_service): void
+    public function setId($id): void
     {
-        $this->id_translator_service = $id_translator_service;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIdTransaltorFk()
-    {
-        return $this->id_transaltor_fk;
-    }
-
-    /**
-     * @param mixed $id_transaltor_fk
-     */
-    public function setIdTransaltorFk($id_transaltor_fk): void
-    {
-        $this->id_transaltor_fk = $id_transaltor_fk;
+        $this->id = $id;
     }
 
     /**
      * @return mixed
      */
-    public function getIdServiceFk()
+    public function getIdTranFk()
     {
-        return $this->id_service_fk;
+        return $this->id_tran_fk;
     }
 
     /**
-     * @param mixed $id_service_fk
+     * @param mixed $id_tran_fk
      */
-    public function setIdServiceFk($id_service_fk): void
+    public function setIdTranFk($id_tran_fk): void
     {
-        $this->id_service_fk = $id_service_fk;
+        $this->id_tran_fk = $id_tran_fk;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdServFk()
+    {
+        return $this->id_serv_fk;
+    }
+
+    /**
+     * @param mixed $id_serv_fk
+     */
+    public function setIdServFk($id_serv_fk): void
+    {
+        $this->id_serv_fk = $id_serv_fk;
     }
 
 

@@ -110,6 +110,7 @@ abstract class Model implements \JsonSerializable
         }
     }
 
+
     /**
      * Save the current model to DB (if model id is set, update it, else create a new model)
      * @return void

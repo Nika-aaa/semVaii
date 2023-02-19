@@ -7,23 +7,23 @@ use App\Core\Model;
 class Service extends Model
 {
 
-    protected $id_service;
+    protected $id;
     protected $service;
 
     /**
      * @return mixed
      */
-    public function getIdService()
+    public function getId()
     {
-        return $this->id_service;
+        return $this->id;
     }
 
     /**
-     * @param mixed $id_service
+     * @param mixed $id
      */
-    public function setIdService($id_service): void
+    public function setId($id): void
     {
-        $this->id_service = $id_service;
+        $this->id = $id;
     }
 
     /**

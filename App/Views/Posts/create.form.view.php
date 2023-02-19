@@ -8,6 +8,5 @@
         <input type="text" name="text" value="<?php echo $data->getText() ?>">
     </label>
         <input type="submit" value="Odoslat">
-<!--    takto sa prechadza medzi strankami -->
     <a class="navbar-brand" href="?c=auth">login</a>
 </form>

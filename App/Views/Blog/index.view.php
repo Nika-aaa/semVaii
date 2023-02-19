@@ -3,6 +3,9 @@
 /** @var \App\Models\BlogPost[] $data */
 /** @var \App\Core\IAuthenticator $auth */
 
+
+$sortOrder = $_GET['sort'] ?? 'desc'; // Default to showing the newest posts first
+
 ?>
 
 <div>
@@ -10,8 +13,28 @@
     <div class="container">
         <div class="row">
             <div class="col-10 col-xs-10 col-sm-10 col-md-8  mx-auto">
-                <?php foreach (array_reverse($data) as $post) { ?>
-                    <div class="card my-3">
+
+<!--                <select id="sort-order">-->
+<!--                    <option value="asc">Oldest First</option>-->
+<!--                    <option value="desc">Newest First</option>-->
+<!--                </select>-->
+
+<!---->
+<!--                <div class="form-group">-->
+<!--                    <label for="sortSelect">Sort by</label>-->
+<!--                    <select class="form-control" id="sortSelect">-->
+<!--                        <option value="newest">Newest first</option>-->
+<!--                        <option value="oldest">Oldest first</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!---->
+<!---->
+<!--                <div id="posts-container">-->
+<!--                    --><?php //foreach (array_reverse($data) as $post) { ?>
+
+
+                    <?php foreach (array_reverse($data) as $post) { ?>
+                    <div class="card my-3" >
                         <div class="card-body">
                             <h5 class="card-title text-center"><?php echo $post->getTitle() ?></h5>
                             <p class="card-text"> <?php echo $post->getText() ?> </p>
@@ -91,6 +114,10 @@
                     </div>
                 <?php } ?>
 
+
+
+
+
                 <div class="text-center">
                     <?php if($auth->isLogged() && $auth->getLoggedUserName() == "nikaaa") { ?>
                         <a href="?c=blog&a=createBlogpost" class="btn btn-secondary">Create new blogpost</a>
@@ -103,3 +130,26 @@
     </div>
 
     <script src="public/js/blog.js"></script>
+    <!-- Add the necessary CSS and JS files -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!--        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+<!---->
+<!--    <script>-->
+<!--        $(document).ready(function () {-->
+<!--            $('#sortSelect').change(function () {-->
+<!--                var sortOption = $(this).val();-->
+<!--                $.ajax({-->
+<!--                    url: '?c=blog&a=getSortedPosts&sortOption=' + sortOption,-->
+<!--                    success: function (response) {-->
+<!--                        $('#posts-container').html(response);-->
+<!--                    }-->
+<!--                });-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
+
+
+

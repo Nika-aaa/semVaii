@@ -6,23 +6,23 @@ use App\Core\Model;
 
 class Language extends Model
 {
-    protected $id_language;
+    protected $id;
     protected $language;
 
     /**
      * @return mixed
      */
-    public function getIdLanguage()
+    public function getId()
     {
-        return $this->id_language;
+        return $this->id;
     }
 
     /**
-     * @param mixed $id_language
+     * @param mixed $id
      */
-    public function setIdLanguage($id_language): void
+    public function setId($id): void
     {
-        $this->id_language = $id_language;
+        $this->id = $id;
     }
 
     /**

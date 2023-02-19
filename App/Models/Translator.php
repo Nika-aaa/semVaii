@@ -7,9 +7,8 @@ use App\Core\Model;
 class Translator extends Model
 {
 
-    protected $id_translator;
+    protected $id;
     protected $name;
-    protected $surname;
     protected $email;
     protected $telephone;
     protected $photo;
@@ -17,17 +16,17 @@ class Translator extends Model
     /**
      * @return mixed
      */
-    public function getIdTranslator()
+    public function getId()
     {
-        return $this->id_translator;
+        return $this->id;
     }
 
     /**
-     * @param mixed $id_translator
+     * @param mixed $id
      */
-    public function setIdTranslator($id_translator): void
+    public function setId($id): void
     {
-        $this->id_translator = $id_translator;
+        $this->id = $id;
     }
 
     /**
@@ -46,21 +45,6 @@ class Translator extends Model
         $this->name = $name;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getSurname()
-    {
-        return $this->surname;
-    }
-
-    /**
-     * @param mixed $surname
-     */
-    public function setSurname($surname): void
-    {
-        $this->surname = $surname;
-    }
 
     /**
      * @return mixed
