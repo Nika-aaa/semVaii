@@ -62,7 +62,8 @@ if ($auth->isLogged()) { ?>
 
 <div id="cards" >
 
-<?php foreach (array_reverse($data) as $review) { ?>
+<?php foreach ($data as $review) { ?>
+<?php //foreach (array_reverse($data) as $review) { ?>
     <div class="card my-3" >
         <div class="card-body">
             <h5 class="card-title text-center"><?php echo $review->getTitle() ?></h5>
@@ -70,7 +71,8 @@ if ($auth->isLogged()) { ?>
             <p class="card-text"> <?php echo $review->getDate() ?></p>
             <p class="card-text"> <?php echo $review->getAuthor() ?></p>
             <p class="card-text"> <?php echo $review->getPercentageSatisfaction()?></p>
-            <p class="card-text"> <?php echo $review->getTranslatorIdFk()?></p>
+<!--            //TODO decode name of the translator-->
+            <p class="card-text" id="transaltorNameDecode"> <?php echo $review->getTranslatorIdFk()?></p>
 
         </div>
     </div>

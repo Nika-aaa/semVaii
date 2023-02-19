@@ -6,18 +6,20 @@
 
 $translators = $data[0];
 $services = $data[1];
+$levels = $data[2];
+$languages = $data[3];
 
 ?>
 
 
 <?php ?>
 
+
 <div class="" id="becomeTranslator">
 
-
-
-
     <div id="accordion">
+
+<!--        //---------------------------first accordion-->
         <div class="card" id="displayBecomeTranslator">
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
@@ -47,16 +49,19 @@ $services = $data[1];
                         <br>
 
                         <br>
+                        <p id="becomeTranslatorFeedback"></p>
+
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
-
 
                     </form>
                 </div>
             </div>
         </div>
 
+
+<!--        //---------------------------second accordion-->
         <div class="card" id="displayEditTranslator">
             <div class="card-header" id="headingTwo">
                 <h5 class="mb-0">
@@ -85,6 +90,8 @@ $services = $data[1];
                         <br>
 
                         <br>
+                        <p id="editTranslatorFeedback"></p>
+
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
@@ -92,6 +99,9 @@ $services = $data[1];
                 </div>
             </div>
         </div>
+
+
+<!--        //---------------------------third accordion-->
         <div class="card" id="displayEditLanguages">
             <div class="card-header" id="headingThree">
                 <h5 class="mb-0">
@@ -100,17 +110,21 @@ $services = $data[1];
                     </button>
                 </h5>
             </div>
+
+
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                 <div class="card-body">
 
 
-                    <p id="loadingServices">Loading your services</p>
 
+<!--                    //translator services-->
+<!--                    //------------------------------->
+                    <p id="loadingDisplayServices">Loading your services</p>
                     <ul id="displayServices">
 
                     </ul>
-
-
+<!--                    //translator services select-->
+<!--                    //----------------------------------------->
                     <div>
                         <form>
                             <div class="form-group">
@@ -125,15 +139,50 @@ $services = $data[1];
                             </div>
                         </form>
                     </div>
+
+<!--                    //translator languages-->
+<!--                    //------------------------------------------->
+                    <div>
+                        <p id="loadingDisplayLanguages">Loading your languages</p>
+
+                        <ul id="displayLanguages">
+
+                        </ul>
+
+
+
+                    </div>
+
+<!--                    //translator languages select-->
+<!--                    //------------------------------------------->
+                    <form>
+                        <div class="form-group">
+                            <label for="formLanguageSelector">Select language you would like to add</label>
+                            <select class="form-control custom-select" id="formLanguageSelector">
+                                <?php foreach ($languages as $language) { ?>
+                                    <option value="<?php echo $language->getId() ?>" id="optionLanguage-<?php echo $language->getId() ?>"> <?php echo $language->getlanguage() ?></option>
+                                <?php } ?>
+                            </select>
+                            <select class="form-control custom-select" id="formLevelSelector">
+                                <?php foreach ($levels as $level) { ?>
+                                    <option value="<?php echo $level->getId() ?>" id="optionLevel-<?php echo $level->getId() ?>"> <?php echo $level->getLevel() ?></option>
+                                <?php } ?>
+                            </select>
+
+                            <button type="submit" class="btn btn-primary my-1" onclick="addLanguage(event)">Submit</button>
+
+                        </div>
+                    </form>
+
                 </div>
             </div>
         </div>
     </div>
 
-
     <script src="public/js/translators.js"></script>
 
-
+<!--//translator cards-->
+<!--//--------------------------------------------------------------------------------------->
 
 <div>
     <?php foreach ($translators as $translator) { ?>
@@ -153,9 +202,12 @@ $services = $data[1];
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
         <script>
             getTranslatorServices(<?php echo $translator->getId() ?>);
             getTranslatorLanguages(<?php echo $translator->getId() ?>);
         </script>
     <?php } ?>
 </div>
+
+

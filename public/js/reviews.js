@@ -70,7 +70,7 @@ $(function() {
 
                 let author = document.createElement("p");
                 text.classList.add("card-text");
-                date.innerText = "You";
+                author.innerText = "You";
 
 
                 let percentage = document.createElement("p");
@@ -88,85 +88,11 @@ $(function() {
                 cardBody.appendChild(percentage);
                 cardBody.appendChild(translator);
 
+
+
                 newCard.appendChild(cardBody);
+                // cardsDiv.insertBefore(newCard, document.getElementsByClassName(""))
                 cardsDiv.appendChild(newCard);
-
-
-
-
-                //
-// // create new card element
-//                 let card = document.createElement("div");
-//                 card.classList.add("card", "my-3");
-//
-// // create card body element
-//                 let cardBody = document.createElement("div");
-//                 cardBody.classList.add("card-body");
-//
-// // create title element and add title text
-//                 let titleEl = document.createElement("h5");
-//                 titleEl.classList.add("card-title", "text-center");
-//                 titleEl.textContent = title;
-//
-// // create text element and add text content
-//                 let textEl = document.createElement("p");
-//                 textEl.classList.add("card-text");
-//                 textEl.textContent = text;
-//
-// // create percentage element and add percentage text
-//                 let percentageEl = document.createElement("p");
-//                 percentageEl.classList.add("card-text");
-//                 percentageEl.textContent = percentage;
-//
-// // create translator element and add translator text
-//                 let translatorEl = document.createElement("p");
-//                 translatorEl.classList.add("card-text");
-//                 translatorEl.textContent = translator;
-//
-// // add all elements to the card body
-//                 cardBody.appendChild(titleEl);
-//                 cardBody.appendChild(textEl);
-//                 cardBody.appendChild(percentageEl);
-//                 cardBody.appendChild(translatorEl);
-//
-// // add card body to the card element
-//                 card.appendChild(cardBody);
-//
-// // add card element to the cards div
-// //                 let cards = document.getElementById("cards");
-//                 cards.appendChild(card);
-
-                //
-                // let card = document.createElement("div");
-                // card.classList.add("card", "my-3");
-                //
-                // let cardBody = document.createElement("div");
-                // cardBody.classList.add("card-body");
-                //
-                // let cardTitle = document.createElement("h5");
-                // cardTitle.classList.add("card-title", "text-center");
-                // cardTitle.textContent = title;
-                //
-                // let cardText = document.createElement("p");
-                // cardText.classList.add("card-text");
-                // cardText.textContent = text;
-                //
-                // let cardPercentage = document.createElement("p");
-                // cardPercentage.classList.add("card-text");
-                // cardPercentage.textContent = percentage;
-                //
-                // let cardTranslator = document.createElement("p");
-                // cardTranslator.classList.add("card-text");
-                // cardTranslator.textContent = translator;
-                //
-                // cardBody.appendChild(cardTitle);
-                // cardBody.appendChild(cardText);
-                // cardBody.appendChild(cardPercentage);
-                // cardBody.appendChild(cardTranslator);
-                //
-                // card.appendChild(cardBody);
-                // cards.appendChild(card);
-
 
 
             })
@@ -194,7 +120,7 @@ function validate() {
         feedback.innerText = "Text should be 20-500 characters long";
         return false;
     } else if (translatorName.value.length < 2 || translatorName.value.length >100) {
-        feedback.innerText = "Titlw should be 5-100 characters long";
+        feedback.innerText = "Title should be 5-100 characters long";
         return false;
     }
 

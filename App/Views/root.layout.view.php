@@ -52,7 +52,7 @@ use App\Core\IAuthenticator;
                 <a href="?c=reviews" class="nav-link padding_left">TESTIMONIALS</a>
             </li>
             <li class="nav-item">
-                <a href="?c=translators" class="nav-link padding_left">FIND A TRANSLATOR</a>
+                <a href="?c=translators" class="nav-link padding_left">OUR TRANSLATORS</a>
             </li>
 
             <?php if (!$auth->isLogged()) { ?>

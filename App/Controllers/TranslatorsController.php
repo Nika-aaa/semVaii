@@ -23,14 +23,14 @@ class TranslatorsController extends AControllerBase
 //        $assignedLanguages = TranslatorLanguages::getAll();
 //        $users = User::getAll();
         $services = Service::getAll();
-//        $levels = Level::getAll();
-//        $languages = Language::getAll();
+        $levels = Level::getAll();
+        $languages = Language::getAll();
 
 
 //        $usedLanguages = array_unique($this->getUniqueLanguages());
 
 //        return $this->html([$transaltors, $assignedServices, $assignedLanguages, $users, $services, $levels, $languages]);
-        return $this->html([$transaltors, $services]);
+        return $this->html([$transaltors, $services, $levels, $languages]);
         // TODO: Implement index() method.
     }
 
@@ -114,6 +114,18 @@ class TranslatorsController extends AControllerBase
                 $temp = array([$lang, $level]);
                 array_push($data, $temp);
             }
+        }
+
+        return $this->json($data);
+    }
+
+    public function getLanguages() {
+        $translatorId = $this->request()->getValue('id');
+        $data = array();
+        $languages = TranslatorLanguages::getAll("translator_fk = ?", [$translatorId]);
+        foreach ($languages as $language) {
+            //add service                                                                                                                               //table row id, PK
+            array_push($data, [Language::getOne($language->getLanguageFk())->getLanguage(), Level::getOne($language->getLevelFk())->getLevel(), $language->getId()]);
         }
 
         return $this->json($data);
