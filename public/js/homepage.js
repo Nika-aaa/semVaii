@@ -25,6 +25,7 @@ triviaAnswer.addEventListener("mouseover", function () {
     triviaAnswer.innerText = answer;
 })
 
+
 setInterval(getTrivia, 60000);
 
 

@@ -14,15 +14,18 @@ class TranslatorLanguagesController extends AControllerBase
     public function index(): Response
     {
         return $this->html();
-        // TODO: Implement index() method.
     }
 
     public function deleteLanguage() :JsonResponse {
         $idRow = $this->request()->getValue('idLang');
-        $language = TranslatorLanguages::getOne($idRow);
-        $language->delete();
+        if ($idRow) {
+            $language = TranslatorLanguages::getOne($idRow);
+            $language->delete();
 
-        return $this->json(true);
+            return $this->json(true);
+        }
+        return $this->json(false);
+
     }
 
     public function addLanguage() :JsonResponse {
@@ -30,13 +33,16 @@ class TranslatorLanguagesController extends AControllerBase
         $idLevel = $this->request()->getValue('idLevel');
         $idTranslator = $this->request()->getValue('idTran');
 
-        $language = new TranslatorLanguages();
-        $language->setLanguageFk($idLang);
-        $language->setLevelFk($idLevel);
-        $language->setTranslatorFk($idTranslator);
+        if ($idLang && $idTranslator && $idLevel) {
+            $language = new TranslatorLanguages();
+            $language->setLanguageFk($idLang);
+            $language->setLevelFk($idLevel);
+            $language->setTranslatorFk($idTranslator);
 
-        $language->save();
+            $language->save();
 
-        return $this->json([true, $language->getId()]);
+            return $this->json([true, $language->getId()]);
+        }
+        return $this->json(false);
     }
 }

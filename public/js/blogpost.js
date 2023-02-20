@@ -34,6 +34,12 @@ class BlogPost {
         return false;
     }
 
+    // validateEdit() {
+    //
+    //     let titleEdit = document.getElementById("createBlogTitle");
+    //     let textEdit = document.getElementById("createBlogText");
+    // }
+
     validate() {
         let message="";
         let maxLength;
@@ -85,6 +91,7 @@ let title = document.getElementById("createBlogTitle");
 let text = document.getElementById("createBlogText");
 
 let blogPost = new BlogPost(title, text, feedback);
+
 
 function create(event) {
     event.preventDefault();

@@ -31,7 +31,6 @@ class TranslatorsController extends AControllerBase
 
 //        return $this->html([$transaltors, $assignedServices, $assignedLanguages, $users, $services, $levels, $languages]);
         return $this->html([$transaltors, $services, $levels, $languages]);
-        // TODO: Implement index() method.
     }
 
     /**
@@ -193,7 +192,6 @@ class TranslatorsController extends AControllerBase
         $user = User::getAll('nickname = ?', [$loggedUser]);
         $translatorQuery = Translator::getOne($user[0]->getTranslatorIdFk());
 
-        //TODO from _post get info and save it
         $name = $_POST['nameEdit'];
         $email = $_POST['emailEdit'];
         $telephone = $_POST['telephoneEdit'];

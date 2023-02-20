@@ -27,103 +27,125 @@ $(function() {
 
     $('#add-review-form').on('submit', function(e) {
         e.preventDefault();
+            if (validateForm()) {
+                console.log(this)
+                console.log("za prevent");
+                // Send an AJAX request to the controller
+                fetch('?c=reviews&a=addReview', {
+                    method: 'POST',
+                    body: new FormData(this)
+                })
 
-        console.log(this)
-        console.log("za prevent");
-        // Send an AJAX request to the controller
-         fetch('?c=reviews&a=addReview', {
-            method: 'POST',
-            body: new FormData(this)
-         })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
 
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-
-                feedback.innerText = "Review submitted"
-                // let cards = document.getElementById("cards").innerText;
-                // let title = document.getElementById("reviewTitle").innerText;
-                // let text = document.getElementById("reviewText").innerText;
-                // let percentage = document.getElementById("percentage").innerText;
-                // let translator = document.getElementById("translatorName").nodeValue;
+                        let translatorName = data['name'];
+                        let percentageNum = data['percentage'];
 
 
-                let cardsDiv = document.getElementById("cards");
-
-                let newCard = document.createElement("div");
-                newCard.classList.add("card", "my-3");
-
-                let cardBody = document.createElement("div");
-                cardBody.classList.add("card-body");
-
-                let title = document.createElement("h5");
-                title.classList.add("card-title", "text-center");
-                title.innerHTML = document.getElementById("reviewTitle").value;
-
-                let text = document.createElement("p");
-                text.classList.add("card-text");
-                text.innerHTML = document.getElementById("reviewText").value;
-
-                let date = document.createElement("p");
-                text.classList.add("card-text");
-                date.innerText = getDate();
-
-                let author = document.createElement("p");
-                text.classList.add("card-text");
-                author.innerText = "You";
+                        // let cards = document.getElementById("cards").innerText;
+                        // let title = document.getElementById("reviewTitle").innerText;
+                        // let text = document.getElementById("reviewText").innerText;
+                        // let percentage = document.getElementById("percentage").innerText;
+                        // let translator = document.getElementById("translatorName").nodeValue;
 
 
-                let percentage = document.createElement("p");
-                percentage.classList.add("card-text");
-                percentage.innerHTML = document.getElementById("percentage").value;
+                        let cardsDiv = document.getElementById("cards");
 
-                let translator = document.createElement("p");
-                translator.classList.add("card-text");
-                translator.innerHTML = document.getElementById("translatorName").value;
+                        let newCard = document.createElement("div");
+                        newCard.classList.add("card", "my-3");
 
-                cardBody.appendChild(title);
-                cardBody.appendChild(text);
-                cardBody.appendChild(date);
-                cardBody.appendChild(author);
-                cardBody.appendChild(percentage);
-                cardBody.appendChild(translator);
+                        let cardBody = document.createElement("div");
+                        cardBody.classList.add("card-body");
+
+                        let date = document.createElement("p");
+                        date.classList.add("card-text", "border-bottom", "text-center");
+                        date.innerText = getDate();
 
 
+                        let blockquote = document.createElement("blockquote");
+                        blockquote.classList.add("blockquote", "text-center", "border-bottom");
 
-                newCard.appendChild(cardBody);
-                // cardsDiv.insertBefore(newCard, document.getElementsByClassName(""))
-                cardsDiv.appendChild(newCard);
+                        let h4 = document.createElement("h4");
+                        h4.innerText = document.getElementById("reviewTitle").value;
+
+                        let footer = document.createElement("footer");
+                        footer.classList.add("blockquote-footer");
+                        footer.innerText = "You";
+
+                        blockquote.appendChild(h4);
+                        blockquote.appendChild(footer);
+
+                        let text = document.createElement("p");
+                        text.classList.add("card-text");
+                        text.innerHTML = document.getElementById("reviewText").value;
 
 
-            })
-            .catch(error => {
-                console.log(error);
-                feedback.innerText = "Review could not be submitted"
-            });
+                        let percentage = document.createElement("p");
+                        percentage.classList.add("card-text");
+                        percentage.innerHTML ="How satisfied the customer was: " + percentageNum;
+
+
+                        let translator = document.createElement("p");
+                        translator.classList.add("card-text");
+                        translator.innerHTML = "Who was their translator: "+translatorName;
+
+                        // cardBody.appendChild(title);
+                        cardBody.appendChild(date);
+                        cardBody.appendChild(blockquote);
+                        cardBody.appendChild(text);
+                        cardBody.appendChild(percentage);
+                        cardBody.appendChild(translator);
+
+
+
+                        newCard.appendChild(cardBody);
+                        cardsDiv.appendChild(newCard);
+
+                        feedback.classList.add("success");
+                        feedback.classList.remove("fail");
+                        feedback.innerText = "Review successfully submitted"
+
+                        document.getElementById("reviewTitle").value = "";
+                        document.getElementById("reviewText").value = "";
+
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        feedback.classList.add("fail");
+                        feedback.classList.remove("success");
+                        feedback.innerText = "Review could not be submitted"
+                    });
+            }
+
+
     });
 });
 
 
-function validate() {
-    let title = document.getElementById('reviewTitle');
-    let text = document.getElementById('reviewText');
-    let percentage = document.getElementById('percentage');
-    let translatorName = document.getElementById('translatorName');
+function validateForm() {
+    const title = document.getElementById("reviewTitle").value;
+    const text = document.getElementById("reviewText").value;
 
-    if (title.value.text === "" || text.value.text === "" || percentage.value.text === "", translatorName.value.text === "") {
-        feedback.innerText = "Fill out all fields";
-        return false;
-    } else if (title.value.length < 5 || title.value.length >100) {
-        feedback.innerText = "Title should be 5-100 characters long";
-        return false;
-    } else if (text.value.length < 20 || text.value.length >500) {
-        feedback.innerText = "Text should be 20-500 characters long";
-        return false;
-    } else if (translatorName.value.length < 2 || translatorName.value.length >100) {
-        feedback.innerText = "Title should be 5-100 characters long";
+    feedback.classList.add("fail");
+
+    if (title.length < 5 || title.length > 100) {
+        feedback.innerText = "Title must be between 5 and 100 characters";
         return false;
     }
 
+    if (text.length < 20 || text.length > 500) {
+        feedback.innerText = "Text must be between 20 and 500 characters";
+        return false;
+    }
 
+    if (!title || !text) {
+        feedback.innerText ="All fields are required";
+        return false;
+    }
 
+    feedback.classList.remove("fail");
+    feedback.classList.add("success");
+    return true;
 }

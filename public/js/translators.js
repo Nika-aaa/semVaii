@@ -125,7 +125,7 @@ async function assignTranslator() {
 
 
 
-
+//display languages and services
 async function displayData(id, url, elementId) {
     console.log(`displayData start for ${elementId}`);
     await fetch(`${url}${id}`)
@@ -140,6 +140,7 @@ async function displayData(id, url, elementId) {
             console.log(data.length);
             for (let i = 0; i < data.length; i++) {
                 const listItem = document.createElement('li');
+                listItem.classList.add("my-1")
                 let itemText = '';
                 let itemId = null;
                 if (elementId === 'displayServices') {
@@ -154,9 +155,7 @@ async function displayData(id, url, elementId) {
 
                 const button = document.createElement("button");
                 button.innerText = "Remove";
-                button.classList.add("btn");
-                button.classList.add("btn-outline-primary");
-                button.classList.add("btn-sm");
+                button.classList.add("btn", "btn-light" ,"btn-outline-dark", "bold", "btn-sm");
                 button.addEventListener("click", function() {
                     if (elementId === 'displayServices') {
                         deleteService(itemId, listItem);
@@ -174,89 +173,6 @@ async function displayData(id, url, elementId) {
         .catch(error => console.error(error));
 }
 
-
-
-
-// async function displayServices() {
-//     console.log("displayServices start");
-//     await fetch(`?c=translators&a=getServices&id=${translatorId}`)
-//         .then(response => response.json())
-//         .then(data => {
-//             console.log(data);
-//             console.log('displayServices data');
-//
-//             let ul = document.getElementById("displayServices");
-//
-//             //list offered services and the option to delete the service
-//             console.log(data.length);
-//             for (let i = 0; i < data.length; i++) {
-//                 let serviceId = data[i]['id'];
-//                 const listItem = document.createElement('li');
-//                 listItem.innerText = data[i]['service'] + "  ";
-//                 ul.appendChild(listItem);
-//
-//                 const button = document.createElement("button");
-//                 button.innerText = "Remove";
-//                 button.classList.add("btn");
-//                 button.classList.add("btn-outline-primary");
-//                 button.classList.add("btn-sm");
-//                 button.addEventListener("click", function() {
-//                     deleteService(serviceId, listItem); // call the deleteService function with the service ID
-//                 });
-//                 listItem.appendChild(button);
-//             }
-//
-//             document.getElementById("loadingServices").classList.add("hidden")
-//             //add service
-//
-//
-//             console.log("after if displayServices");
-//
-//         })
-//         .catch(error => console.error(error));
-// }
-//
-// async function displayLanguages() {
-//     console.log("displayLanguages start");
-//     await fetch(`?c=translators&a=getlanguages&id=${translatorId}`)
-//         .then(response => response.json())
-//         .then(data => {
-//             console.log(data);
-//             console.log('displayLanguages data');
-//
-//
-//             let ul = document.getElementById("displayLanguages");
-//
-//             //list offered services and the option to delete the service
-//             console.log(data.length);
-//             for (let i = 0; i < data.length; i++) {
-//                 let language = data[i][0];
-//                 let languageLevel = data[i][1];
-//                 let rowId = data[i][2]; //pk, row id
-//                 const listItem = document.createElement('li');
-//                 listItem.innerText = language + " " + languageLevel + " " + rowId + " ";
-//                 ul.appendChild(listItem);
-//
-//                 const button = document.createElement("button");
-//                 button.innerText = "Remove";
-//                 button.classList.add("btn");
-//                 button.classList.add("btn-outline-primary");
-//                 button.classList.add("btn-sm");
-//                 button.addEventListener("click", function() {
-//                     deleteLanguage(rowId, listItem); // call the deleteService function with the service ID
-//                 });
-//                 listItem.appendChild(button);
-//             }
-//
-//             document.getElementById("loadingLanguages").classList.add("hidden")
-//             //add service
-//
-//
-//             console.log("end displayLanguages");
-//
-//         })
-//         .catch(error => console.error(error));
-// }
 
 
 async function deleteLanguage(rowId, listItem) {
@@ -314,14 +230,14 @@ async function addLanguage(event) {
                 let ul = document.getElementById("displayLanguages");
 
                 const listItem = document.createElement('li');
+                listItem.classList.add("my-1");
                 listItem.innerText = languageName + " " + levelName + " " + rowId + " ";
                 ul.appendChild(listItem);
 
                 const button = document.createElement("button");
                 button.innerText = "Remove";
-                button.classList.add("btn");
-                button.classList.add("btn-outline-primary");
-                button.classList.add("btn-sm");
+                button.classList.add("btn", "btn-light" ,"btn-outline-dark", "bold", "btn-sm");
+
                 button.addEventListener("click", function() {
                     deleteLanguage(rowId, listItem); // call the deleteService function with the service ID
                 });
@@ -359,14 +275,14 @@ async function addService(event) {
                 let ul = document.getElementById("displayServices");
 
                 const listItem = document.createElement('li');
+                listItem.classList.add("my-1");
                 listItem.innerText = serviceName;
                 ul.appendChild(listItem);
 
                 const button = document.createElement("button");
                 button.innerText = "Remove";
-                button.classList.add("btn");
-                button.classList.add("btn-outline-primary");
-                button.classList.add("btn-sm");
+                button.classList.add("btn", "btn-light" ,"btn-outline-dark", "bold", "btn-sm");
+
                 button.addEventListener("click", function() {
                     deleteService(serviceId, listItem); // call the deleteService function with the service ID
                 });

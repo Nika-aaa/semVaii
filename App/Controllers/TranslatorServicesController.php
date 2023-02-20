@@ -20,26 +20,32 @@ class TranslatorServicesController extends AControllerBase
         $serviceId = $this->request()->getValue('idServ');
         $translatorId = $this->request()->getValue('idTran');
 
-        $service = TranslatorServices::getAll("id_tran_fk = ? and id_serv_fk = ?", [$translatorId, $serviceId]);
-        if ($service){
-            $service[0]->delete();
-            return $this->json(true);
-        } else {
-            return $this->json(false);
+        if ($serviceId && $translatorId) {
+            $service = TranslatorServices::getAll("id_tran_fk = ? and id_serv_fk = ?", [$translatorId, $serviceId]);
+            if ($service){
+                $service[0]->delete();
+                return $this->json(true);
+            } else {
+                return $this->json(false);
+            }
         }
+        return $this->json(false);
     }
 
     public function addService() :JsonResponse {
         $serviceId = $this->request()->getValue('idServ');
         $translatorId = $this->request()->getValue('idTran');
 
-        $service = new TranslatorServices();
-        $service->setIdServFk($serviceId);
-        $service->setIdTranFk($translatorId);
+        if ($serviceId && $translatorId) {
+            $service = new TranslatorServices();
+            $service->setIdServFk($serviceId);
+            $service->setIdTranFk($translatorId);
 
-        $service->save();
+            $service->save();
 
-        return $this->json(true);
+            return $this->json(true);
+        }
+        return $this->json(false);
 
     }
 }

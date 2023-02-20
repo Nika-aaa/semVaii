@@ -9,8 +9,8 @@
             <div class="col-lg-6 text-center order-2 order-lg-1">
                 <div class="row justify-content-center">
                     <div class="col-10 col-lg-8 mb-5 mb-md-0">
-                        <h2>Connecting the World Through Language</h2>
-                        <p class="lead">Translatoria is a platform revolutionizing
+                        <h4>Connecting the World Through Language</h4>
+                        <p class="lead border-top">Translatoria is a platform revolutionizing
                             the way people connect with professional translators.
                             With a user-friendly interface and a directory of talented
                             translators from all over the world, Translatoria is
@@ -32,8 +32,8 @@
             <div class="col-lg-6 text-center order-2 order-md-2">
                 <div class="row justify-content-center">
                     <div class="col-10 col-lg-8 mb-5 mb-md-0">
-                        <h2>Breaking Down Language Barriers with Translatoria</h2>
-                        <p class="lead">Language barriers can often hinder communication
+                        <h4>Breaking Down Language Barriers with Translatoria</h4>
+                        <p class="lead border-top">Language barriers can often hinder communication
                             and hinder growth. That's why Translatoria was created –
                             to break down those barriers and make communication easier.
                             Our platform features a directory of certified translators with
@@ -54,8 +54,8 @@
             <div class="col-lg-6 text-center order-2 order-lg-1">
                 <div class="row justify-content-center ">
                     <div class="col-10 col-lg-8 mb-5 mb-md-0">
-                        <h2>Join the Translatoria Community</h2>
-                        <p class="lead">Are you a language professional
+                        <h4>Join the Translatoria Community</h4>
+                        <p class="lead border-top">Are you a language professional
                             looking to expand your client base and showcase
                             your skills? Then Translatoria is the platform
                             for you. Our website provides you with a professional
@@ -75,8 +75,8 @@
             <div class="col-lg-6 text-center order-2 order-md-2">
                 <div class="row justify-content-center">
                     <div class="col-10 col-lg-8 mb-5 mb-md-0">
-                        <h2>The Future of Translation Services: Translatoria</h2>
-                        <p class="lead">The world of translation services is evolving,
+                        <h4>The Future of Translation Services: Translatoria</h4>
+                        <p class="lead border-top">The world of translation services is evolving,
                             and Translatoria is at the forefront of this change.
                             Our platform offers a range of tools and features that
                             make it easy to request quotes, communicate with translators,
@@ -99,7 +99,7 @@
                 <div class="row justify-content-center ">
                     <div class="col-10 col-lg-8 mb-5 mb-md-0">
                         <div class="row">
-                            <h2>LANGUAGE TRIVIA</h2>
+                            <h4 class="border-bottom">LANGUAGE TRIVIA</h4>
                             <br>
                         </div>
                         <br>
@@ -108,7 +108,7 @@
                             </div>
                             <br>
                             <div class="row">
-                                <span id="triviaAnswer"> Reveal answer</span>
+                                <p><span id="triviaAnswer"> Reveal answer</span></p>
                             </div>
 
                     </div>

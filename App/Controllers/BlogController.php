@@ -17,25 +17,47 @@ class BlogController extends AControllerBase
 
     public function editBlogPost() : Response
     {
-       $title = $_POST['editBlogTitle'];
-       $text = $_POST['editBlogText'];
-       $id = $this->request()->getValue('id');
+        if (!isset($_POST['editBlogTitle'], $_POST['editBlogText'])) {
+            return $this->errorResponse("Missing required POST variables");
+        }
 
+        $title = $_POST['editBlogTitle'];
+        $text = $_POST['editBlogText'];
+        $id = $this->request()->getValue('id');
 
-       $postToBeEdited = BlogPost::getOne($id);
-       $postToBeEdited->setTitle($title);
-       $postToBeEdited->setText($text);
+        if (empty($title) || empty($text)) {
+            return $this->errorResponse("Title and text cannot be empty");
+        }
 
-       $postToBeEdited->save();
+        try {
+            $postToBeEdited = BlogPost::getOne($id);
+            $postToBeEdited->setTitle($title);
+            $postToBeEdited->setText($text);
 
+            $postToBeEdited->save();
+        } catch (Exception $e) {
+            error_log("Error editing blog post: " . $e->getMessage());
+
+            return $this->errorResponse("An error occurred while editing the blog post");
+        }
 
         return $this->redirect("?c=blog");
     }
 
+
+
     public function deleteBlogpost() :Response
     {
+        $id = $this->request()->getValue('id');
+        if (!is_numeric($id)) {
+            return $this->errorResponse("Wrong id");
 
-        $postToBeDeleted = BlogPost::getOne($this->request()->getValue('id'));
+        }
+
+        $postToBeDeleted = BlogPost::getOne($id);
+        if (!$postToBeDeleted) {
+            return $this->errorResponse("Unsuccessful deletion");
+        }
 
         $postToBeDeleted->delete();
 
@@ -49,6 +71,7 @@ class BlogController extends AControllerBase
 
     public function store() :Response
     {
+
         $data = json_decode(file_get_contents('php://input'));
         $blogpost = new BlogPost();
         $blogpost->setText($data->text);

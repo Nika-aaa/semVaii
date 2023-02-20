@@ -66,13 +66,12 @@ use App\Core\IAuthenticator;
                     <a href="?c=auth&a=logout" class="nav-link padding_left">LOGOUT</a>
                 </li>
 
-                <li>
+                <li id="login">
                     <b id="loginDisplay"><?= $auth->getLoggedUserName() ?></b>
                 </li>
             <?php } ?>
         </ul>
     </div>
-
 </nav>
 
 

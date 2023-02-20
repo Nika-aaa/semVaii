@@ -9,41 +9,22 @@ $sortOrder = $_GET['sort'] ?? 'desc'; // Default to showing the newest posts fir
 ?>
 
 <div>
-    <!--    //TODO responsiveness-->
     <div class="container">
         <div class="row">
-            <div class="col-10 col-xs-10 col-sm-10 col-md-8  mx-auto">
-
-<!--                <select id="sort-order">-->
-<!--                    <option value="asc">Oldest First</option>-->
-<!--                    <option value="desc">Newest First</option>-->
-<!--                </select>-->
-
-<!---->
-<!--                <div class="form-group">-->
-<!--                    <label for="sortSelect">Sort by</label>-->
-<!--                    <select class="form-control" id="sortSelect">-->
-<!--                        <option value="newest">Newest first</option>-->
-<!--                        <option value="oldest">Oldest first</option>-->
-<!--                    </select>-->
-<!--                </div>-->
-<!---->
-<!---->
-<!--                <div id="posts-container">-->
-<!--                    --><?php //foreach (array_reverse($data) as $post) { ?>
+            <div class="col-10 col-xs-10 col-sm-12 col-md-10  mx-auto">
 
 
                     <?php foreach (array_reverse($data) as $post) { ?>
                     <div class="card my-3" >
                         <div class="card-body">
-                            <h5 class="card-title text-center"><?php echo $post->getTitle() ?></h5>
+                            <p class="card-text text-center border-bottom"> <?php echo $post->getDate() ?></p>
+                            <h4 class="card-title text-center border-bottom"><?php echo $post->getTitle() ?></h4>
                             <p class="card-text"> <?php echo $post->getText() ?> </p>
-                            <p class="card-text"> <?php echo $post->getDate() ?></p>
 
                             <?php if($auth->isLogged() && $auth->getLoggedUserName() == "nikaaa") { ?>
                                 <div class="text-center">
 
-                                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#editModal_<?php echo $post->getId() ?>">
+                                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#editModal_<?php echo $post->getId() ?>">
                                         Edit
                                     </button>
 
@@ -52,7 +33,7 @@ $sortOrder = $_GET['sort'] ?? 'desc'; // Default to showing the newest posts fir
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLongTitle">Edit blog post</h5>
+                                                    <h5 class="modal-title bold" id="exampleModalLongTitle">Edit blog post</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
@@ -61,33 +42,33 @@ $sortOrder = $_GET['sort'] ?? 'desc'; // Default to showing the newest posts fir
 
                                                     <form id="formEditBlogpost" method="post" action="?c=blog&a=editBlogpost&id=<?php echo $post->getId()?>">
                                                         <div class="form-group">
-                                                            <label for="editBlogTitle">Title</label>
-                                                            <textarea type="textarea" class="form-control" rows="1" id="editBlogTitle" name="editBlogTitle"><?php echo $post->getTitle()?></textarea>
+                                                            <label for="editBlogTitle" class="bold">Title</label>
+                                                            <textarea required maxlength="1000" minlength="100" type="textarea" class="form-control" rows="1" id="editBlogTitle" name="editBlogTitle"><?php echo $post->getTitle()?></textarea>
                                                         </div>
                                                         <br>
                                                         <div class="form-group">
-                                                            <label for="editBlogText">Text</label>
-                                                            <textarea type="textarea" class="form-control" rows="10" id="editBlogText" name="editBlogText"><?php echo $post->getText()?></textarea>
+                                                            <label for="editBlogText" class="bold">Text</label>
+                                                            <textarea required maxlength="100" minlength="20" type="textarea" class="form-control" rows="10" id="editBlogText" name="editBlogText"><?php echo $post->getText()?></textarea>
                                                             <!--                                                        <textarea class="form-control" rows="15" id="textarea">-->
                                                         </div>
                                                         <br>
                                                         <div class="text-center">
-                                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                                            <button type="submit" class="btn btn-outline-primary">Submit</button>
                                                         </div>
                                                     </form>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <a href="?c=blog&a=deleteBlogpost&id=<?php echo $post->getId() ?>" class="btn btn-secondary" data-toggle="modal" data-target="#deleteModal_<?php echo $post->getId() ?>">Delete</a>
+                                    <a href="?c=blog&a=deleteBlogpost&id=<?php echo $post->getId() ?>" class="btn btn-outline-primary" data-toggle="modal" data-target="#deleteModal_<?php echo $post->getId() ?>">Delete</a>
 
                                     <div class="modal fade" id="deleteModal_<?php echo $post->getId() ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="deleteModalLabel">Delete Post</h5>
+                                                    <h5 class="modal-title bold" id="deleteModalLabel">Delete Post</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
+                                                        <span aria-hidden="true">&times</span>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
@@ -96,9 +77,9 @@ $sortOrder = $_GET['sort'] ?? 'desc'; // Default to showing the newest posts fir
                                                         <input type="hidden" name="_method" value="DELETE">
                                                     </form>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                                    <button type="submit" class="btn btn-danger" form="deleteForm_<?php echo $post->getId() ?>">Delete</button>
+                                                <div class="modal-footer justify-content-center">
+                                                    <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
+                                                    <button type="submit" class="btn btn-outline-danger" form="deleteForm_<?php echo $post->getId() ?>">Delete</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -120,7 +101,7 @@ $sortOrder = $_GET['sort'] ?? 'desc'; // Default to showing the newest posts fir
 
                 <div class="text-center">
                     <?php if($auth->isLogged() && $auth->getLoggedUserName() == "nikaaa") { ?>
-                        <a href="?c=blog&a=createBlogpost" class="btn btn-secondary">Create new blogpost</a>
+                        <a href="?c=blog&a=createBlogpost" class="btn btn-outline-primary">Create new blogpost</a>
                         <br>
                         <br>
                     <?php } ?>
