@@ -7,7 +7,6 @@ function getDate() {
     let month = today.getMonth() + 1;
     let day = today.getDate();
 
-// Add leading zero to single digit month and day values
     if (month < 10) {
         month = '0' + month;
     }
@@ -22,7 +21,6 @@ function getDate() {
 
 
 $(function() {
-    // Handle form submission
     console.log("pred prevent");
 
     $('#add-review-form').on('submit', function(e) {
@@ -30,7 +28,6 @@ $(function() {
             if (validateForm()) {
                 console.log(this)
                 console.log("za prevent");
-                // Send an AJAX request to the controller
                 fetch('?c=reviews&a=addReview', {
                     method: 'POST',
                     body: new FormData(this)

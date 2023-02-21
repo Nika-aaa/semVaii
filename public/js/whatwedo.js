@@ -26,7 +26,6 @@ async function createList() {
 
         ulLanguages.appendChild(newLi);
 
-        // delay the fade in of each item by 200ms
         setTimeout(() => {
             newLi.style.transition = "opacity 1s"; // set transition property
             newLi.style.opacity = "1"; // set opacity to 1
@@ -41,7 +40,6 @@ async function createList() {
         newLi.classList.add("leftLi");
         ulServices.appendChild(newLi);
 
-        // delay the fade in of each item by 200ms
         setTimeout(() => {
             newLi.style.transition = "opacity 1s"; // set transition property
             newLi.style.opacity = "1"; // set opacity to 1

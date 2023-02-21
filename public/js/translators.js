@@ -326,7 +326,6 @@ async function deleteService(serviceId, listItem) {
 
 //first form listener
 $(function() {
-    // Handle form submission
     console.log("pred prevent");
 
     $('#formBecomeTranslator').on('submit', function(e) {
@@ -337,7 +336,6 @@ $(function() {
         if (validateBecomeForm("becomeTranslatorFeedback")) {
 
 
-            // Send an AJAX request to the controller
             fetch('?c=translators&a=registerTranslator', {
                 method: 'POST',
                 body: new FormData(this)
@@ -377,7 +375,6 @@ $(function() {
 
 //second form listener
 $(function() {
-    // Handle editing
     console.log("pred prevent form become");
 
     $('#editInformation').on('submit', function(e) {
@@ -385,7 +382,6 @@ $(function() {
 
         console.log("za prevent form become");
         console.log(this);
-        // Send an AJAX request to the controller
 
 
         if (validateBecomeForm("editTranslatorFeedback")) {
@@ -423,33 +419,28 @@ function validateBecomeForm(formFeedback) {
 
     feedback.classList.add("fail");
 
-    // Check if any field is empty
     if (name.value === "" || email.value === "" || telephone.value === "") {
         feedback.innerText = "All fields must be filled";
         return false;
     }
 
-    // Check name only contains letters, spaces, and hyphens
     let nameRegex = /^[a-zA-Z\s-]+$/; // regex for letters, spaces, and hyphens
     if (!nameRegex.test(name.value)) {
         feedback.innerText = "Name can only contain letters, spaces, and hyphens";
         return false;
     }
 
-    // Check name length is between 10 and 50 characters
     if (name.value.length < 5 || name.value.length > 50) {
         feedback.innerText = "Name must be between 5 and 50 characters";
         return false;
     }
 
-    // Check telephone is a valid phone number
     let phoneRegex = /^\d{10}$/; // regex for 10-digit phone number
     if (!phoneRegex.test(telephone.value)) {
         feedback.innerText = "Invalid telephone number";
         return false;
     }
 
-    // Check email is a valid email address
     let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // regex for email address
     if (!emailRegex.test(email.value)) {
         feedback.innerText = "Invalid email address";
@@ -460,7 +451,6 @@ function validateBecomeForm(formFeedback) {
     feedback.classList.add("success");
     feedback.innerText = "Successfully sent data to the server";
 
-    // All validation checks passed
     return true;
 }
 
